@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using ProductCatalog.Data;
 using ProductCatalog.Models;
+using ProductCatalog.Repositories;
 using ProductCatalog.ViewModels.ProductViewModels;
 
 namespace ProductCatalog.Controllers
@@ -12,32 +10,25 @@ namespace ProductCatalog.Controllers
     [Route("v1")]
     public class ProductController : Controller
     {
-        private readonly StoreDataContext _context;
+        private readonly ProductRepository _repository;
 
-        public ProductController(StoreDataContext context)
+        public ProductController(ProductRepository repository)
         {
-            _context = context;
+            _repository = repository;
         }
 
         [Route("products")]
         [HttpGet]
         public IEnumerable<ListProductViewModel> Get()
         {
-            return _context.Products.Include(x => x.Category).Select(x => new ListProductViewModel
-            {
-                Id = x.Id,
-                Title = x.Title,
-                Price = x.Price,
-                Category = x.Category.Title,
-                CategoryId = x.CategoryId
-            }).AsNoTracking().ToList();
+            return _repository.Get();
         }
 
         [Route("products/{id}")]
         [HttpGet]
         public Product GetProduct(int id)
         {
-            return _context.Products.AsNoTracking().Where(x => x.Id == id).FirstOrDefault();
+            return _repository.Get(id);
         }
 
         [Route("products")]
@@ -66,8 +57,7 @@ namespace ProductCatalog.Controllers
             product.CreateDate = DateTime.Now;
             product.LastUpdateDate = DateTime.Now;
 
-            _context.Products.Add(product);
-            _context.SaveChanges();
+            _repository.Save(product);
 
             return new ResultViewModel
             {
@@ -94,7 +84,7 @@ namespace ProductCatalog.Controllers
                     };
                 }
 
-                var product = _context.Products.Find(model.Id);
+                var product = _repository.Find(model.Id);
 
                 product.Title = model.Title;
                 product.CategoryId = model.CategoryId;
@@ -104,8 +94,7 @@ namespace ProductCatalog.Controllers
                 product.Quantity = model.Quantity;
                 product.LastUpdateDate = DateTime.Now;
 
-                _context.Entry<Product>(product).State = EntityState.Modified;
-                _context.SaveChanges();
+                _repository.Update(product);
 
                 return new ResultViewModel
                 {
