@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ProductCatalog.Data;
 
 namespace ProductCatalog
 {
@@ -10,7 +11,10 @@ namespace ProductCatalog
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddMvc(
+                MvcOptions => MvcOptions.EnableEndpointRouting = false
+            );
+            services.AddScoped<StoreDataContext, StoreDataContext>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -20,16 +24,19 @@ namespace ProductCatalog
                 app.UseDeveloperExceptionPage();
             }
 
-            // app.UseRouting();
+            app.UseRouting();
             app.UseMvc();
 
-            // app.UseEndpoints(endpoints =>
-            // {
-            //     endpoints.MapGet("/", async context =>
-            //     {
-            //         await context.Response.WriteAsync("Hello World!");
-            //     });
-            // });
+            app.UseEndpoints(endpoints =>
+            {
+
+                // endpoints.MapRazorPages();
+                // endpoints.MapFallbackToPage("_Host");
+                // endpoints.MapGet("/", async context =>
+                // {
+                //     await context.Response.WriteAsync("Hello World!");
+                // });
+            });
         }
     }
 }
