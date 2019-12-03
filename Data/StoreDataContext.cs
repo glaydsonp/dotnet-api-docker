@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-// using ProductCatalog.Data.Maps;
+using ProductCatalog.Data.Maps;
 using ProductCatalog.Models;
 
 namespace ProductCatalog.Data
@@ -14,10 +14,10 @@ namespace ProductCatalog.Data
             optionsBuilder.UseSqlServer(@"Server=localhost,8000;Database=prodcat;User ID=SA;Password=Root@123");
         }
 
-        // protected override void OnModelCreating(ModelBuilder modelBuilder)
-        // {
-        //     modelBuilder.ApplyConfiguration(new ProductMap());
-        //     modelBuilder.ApplyConfiguration(new CategoryMap());
-        // }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new ProductMap());
+            modelBuilder.ApplyConfiguration(new CategoryMap());
+        }
     }
 }
