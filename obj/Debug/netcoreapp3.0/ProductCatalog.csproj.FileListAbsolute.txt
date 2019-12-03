@@ -57,3 +57,9 @@ D:\Code\dotnetcoreapi\ProductCatalog\bin\Debug\netcoreapp3.0\Newtonsoft.Json.Bso
 D:\Code\dotnetcoreapi\ProductCatalog\obj\Debug\netcoreapp3.0\ProductCatalog.RazorAssemblyInfo.cache
 D:\Code\dotnetcoreapi\ProductCatalog\obj\Debug\netcoreapp3.0\ProductCatalog.RazorAssemblyInfo.cs
 D:\Code\dotnetcoreapi\ProductCatalog\bin\Debug\netcoreapp3.0\Flunt.dll
+D:\Code\dotnetcoreapi\ProductCatalog\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Code\dotnetcoreapi\ProductCatalog\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Code\dotnetcoreapi\ProductCatalog\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Code\dotnetcoreapi\ProductCatalog\obj\Debug\netcoreapp3.0\ProductCatalog.MvcApplicationPartsAssemblyInfo.cs
+D:\Code\dotnetcoreapi\ProductCatalog\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\Code\dotnetcoreapi\ProductCatalog\bin\Debug\netcoreapp3.0\Microsoft.OpenApi.dll

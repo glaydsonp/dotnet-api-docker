@@ -19,6 +19,8 @@ namespace ProductCatalog.Controllers
 
         [Route("products")]
         [HttpGet]
+        // Cache Handling is in Minutes
+        [ResponseCache(Duration = 60)]
         public IEnumerable<ListProductViewModel> Get()
         {
             return _repository.Get();
