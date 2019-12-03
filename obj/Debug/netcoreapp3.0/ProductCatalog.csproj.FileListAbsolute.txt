@@ -56,3 +56,4 @@ D:\Code\dotnetcoreapi\ProductCatalog\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
 D:\Code\dotnetcoreapi\ProductCatalog\bin\Debug\netcoreapp3.0\Newtonsoft.Json.Bson.dll
 D:\Code\dotnetcoreapi\ProductCatalog\obj\Debug\netcoreapp3.0\ProductCatalog.RazorAssemblyInfo.cache
 D:\Code\dotnetcoreapi\ProductCatalog\obj\Debug\netcoreapp3.0\ProductCatalog.RazorAssemblyInfo.cs
+D:\Code\dotnetcoreapi\ProductCatalog\bin\Debug\netcoreapp3.0\Flunt.dll
